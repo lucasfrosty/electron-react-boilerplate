@@ -2,6 +2,12 @@ const electron = require('electron');
 // Module to control application life.
 const { app, BrowserWindow }  = electron;
 
+const {
+  default: installExtension,
+  REACT_DEVELOPER_TOOLS,
+  REDUX_DEVTOOLS
+} = require('electron-devtools-installer');
+
 const path = require('path');
 const url = require('url');
 
@@ -13,6 +19,17 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
+  if (process.env.NODE_ENV === 'development') {
+    // install react devtools
+    installExtension(REACT_DEVELOPER_TOOLS)
+      .then((name) => { console.log(`Added Extension:  ${name}`); })
+      .catch((err) => { console.log('An error occurred: ', err); });
+
+    //  install redux devtools
+    installExtension(REDUX_DEVTOOLS)
+      .then((name) => { console.log(`Added Extension:  ${name}`); })
+      .catch((err) => { console.log('An error occurred: ', err); });
+  }
   // and load the index.html of the app.
   const startUrl = process.env.ELECTRON_START_URL || url.format({
     pathname: path.join(__dirname, '/../build/index.html'),
@@ -29,7 +46,7 @@ function createWindow() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    mainWindow = null
+    mainWindow = null;
   });
 }
 

@@ -13,8 +13,8 @@
   "homepage": "./",
   "scripts": {
     "start": "concurrently 'yarn react-start' 'wait-on http://localhost:3000/ && yarn electron-start'",
-    "react-start": "react-scripts start",
-    "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "react-start": "BROWSER=none react-scripts start",
+    "electron-start": "ELECTRON_START_URL=http://localhost:3000 NODE_ENV=development electron .",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "electron": "^1.7.9",
-    "foreman": "^2.0.0"
+    "electron-devtools-installer": "^2.2.1"
   }
 }
