@@ -43,4 +43,6 @@ This boilerplate also install [React](https://github.com/facebook/react-devtools
 ## Observations
 As you can see i use ```yarn``` to run the scripts, this is a personal preference. If you want to use npm instead of yarn, make sure to convert the yarn scripts to npm, [this can help you](https://yarnpkg.com/lang/en/docs/migrating-from-npm/).
 
-## References
+## Reference(s)
+1. [Building an Electron application with create-react-app](https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c)
+2. [DevTools Extension](https://github.com/electron/electron/blob/master/docs/tutorial/devtools-extension.md)
