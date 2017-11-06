@@ -38,7 +38,7 @@ This script is a like bit tricky. We'll be running both the ```react-start``` an
 ##### I am personally not a big fan of the 2nd approach because once you close the Electron application, you will need to restart both the Electron and the React server to run it again. While with the 1st approach, you have the concerns seperated to each script (and instance of terminal). But that's up to you.
 
 ## React and Redux devtools
-This boilerplate also install [React](https://github.com/facebook/react-devtools) and [Redux](https://github.com/gaearon/redux-devtools) devtools into the Electron application using the [electron-devtools-installer](https://www.npmjs.com/package/electron-devtools-installer) package, if you don't want that in your application, make sure to disable this piece of code (line 31...35 on ``electron-starter.js``).
+This boilerplate also install [React](https://github.com/facebook/react-devtools) and [Redux](https://github.com/gaearon/redux-devtools) devtools into the Electron application using the [electron-devtools-installer](https://www.npmjs.com/package/electron-devtools-installer) package. If you don't want that in your application, make sure to disable this piece of code (line 31...35 on ``/src/electron-starter.js``).
 
 ## Observations
 As you can see i use ```yarn``` to run the scripts, this is a personal preference. If you want to use npm instead of yarn, make sure to convert the yarn scripts to npm, [this can help you](https://yarnpkg.com/lang/en/docs/migrating-from-npm/).
