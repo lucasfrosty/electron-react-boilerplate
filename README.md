@@ -16,12 +16,12 @@ yarn
 
 Now, run the script(s). Here you have two options:
 ### 1. Run React and Electron in different scripts
-- #### First ou run React:
+#### ---- First ou run React:
 ```bash
 yarn react-start
 ```
 This will run the React application on http://localhost:3000 (you can change the port on the package.json configs)
-- #### Now, in order terminal, you run Electron:
+#### ---- Now, in order terminal, you run Electron:
 ```bash
 yarn electron-start
 ```
