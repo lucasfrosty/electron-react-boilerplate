@@ -16,7 +16,7 @@ yarn
 
 Now, run the script(s). Here you have two options:
 ### 1. Run React and Electron in different scripts
-#### ---- First ou run React:
+#### ---- First you run React:
 ```bash
 yarn react-start
 ```
@@ -25,7 +25,7 @@ This will run the React application on http://localhost:3000 (you can change the
 ```bash
 yarn electron-start
 ```
-This will run the Electron application **consuming** the React part being hosted (by the previous script) on lo[calhost:3000. The order here is important; if you run the Electron first than React, the Electron app will not have the React part running to consume it.
+This will run the Electron application **consuming** the React part being hosted (by the previous script). The order here is important; if you run the Electron first than React, the Electron app will not have the React part running to consume. So make sure to run the scripts in the correct order.
 <br>
 
 
@@ -33,15 +33,15 @@ This will run the Electron application **consuming** the React part being hosted
 ```bash
 yarn start
 ```
-This script is a like bit tricky. We'll be running both the ```react-start``` and ```electron-start``` scripts at the same time, but in this case we will using the [concurrently](https://www.npmjs.com/package/concurrently) and [wait-on](https://www.npmjs.com/package/wait-on) packages to make sure that the the ```electron-start``` script will only run when the ```react-start``` (and the http://localhost:3000) script runs completely.
+This script is a like bit tricky. We'll be running both the ```react-start``` and ```electron-start``` scripts at the same time, but in this case we will using the [concurrently](https://www.npmjs.com/package/concurrently) and [wait-on](https://www.npmjs.com/package/wait-on) packages to make sure that the ```electron-start``` script will only run when the ```react-start``` (and the http://localhost:3000) script runs completely.
 
 ##### I am personally not a big fan of the 2nd approach because once you close the Electron application, you will need to restart both the Electron and the React server to run it again. While with the 1st approach, you have the concerns seperated to each script (and instance of terminal). But that's up to you.
 
 ## React and Redux devtools
-This boilerplate also install [React](https://github.com/facebook/react-devtools) and [Redux](https://github.com/gaearon/redux-devtools) devtools into the Electron application using the [electron-devtools-installer](https://www.npmjs.com/package/electron-devtools-installer) package. If you don't want that in your application, make sure to disable this piece of code (line 31...35 on ``/src/electron-starter.js``).
+This boilerplate also install [React](https://github.com/facebook/react-devtools) and [Redux](https://github.com/gaearon/redux-devtools) devtools into the Electron application using the [electron-devtools-installer](https://www.npmjs.com/package/electron-devtools-installer) package. If you don't want that in your application, make sure to disable this piece of code (line 31...35 on ``src/electron-starter.js``).
 
 ## Observations
-As you can see i use ```yarn``` to run the scripts, this is a personal preference. If you want to use npm instead of yarn, make sure to convert the yarn scripts to npm, [this can help you](https://yarnpkg.com/lang/en/docs/migrating-from-npm/).
+As you can see, i use ```yarn``` to run the scripts. This is a personal preference. If you want to use npm instead of yarn, make sure to convert the yarn scripts to npm, [this can help you](https://yarnpkg.com/lang/en/docs/migrating-from-npm/).
 
 ## Reference(s)
 1. [Building an Electron application with create-react-app](https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c)
