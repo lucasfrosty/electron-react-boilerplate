@@ -1,3 +1,9 @@
+/**
+ * base code get from
+ * https://github.com/electron/electron-quick-start/blob/master/main.js
+ * with some adaptations made.
+**/
+
 const electron = require('electron');
 // Module to control application life.
 const { app, BrowserWindow }  = electron;
@@ -19,18 +25,18 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
+  // checking if you are in dev mode
   if (process.env.NODE_ENV === 'development') {
-    // install react devtools
-    installExtension(REACT_DEVELOPER_TOOLS)
-      .then((name) => { console.log(`Added Extension:  ${name}`); })
-      .catch((err) => { console.log('An error occurred: ', err); });
-
-    //  install redux devtools
-    installExtension(REDUX_DEVTOOLS)
-      .then((name) => { console.log(`Added Extension:  ${name}`); })
-      .catch((err) => { console.log('An error occurred: ', err); });
+    // install react and redux devtools
+    [REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS].forEach(package => {
+      installExtension(package)
+        .then((name) => { console.log(`Added Extension:  ${name}`); })
+        .catch((err) => { console.log('An error occurred: ', err); });
+    });
   }
-  // and load the index.html of the app.
+
+  // and either load the local start url (usually localhost)
+  // or load the index.html on the build folder.
   const startUrl = process.env.ELECTRON_START_URL || url.format({
     pathname: path.join(__dirname, '/../build/index.html'),
     protocol: 'file:',
